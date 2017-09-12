@@ -3,11 +3,19 @@ import java.util.Map;
 
 public class Pizza {
 	public int quantIngredientes = 0;
-	public static HashMap<String, Integer> ingredientes = new HashMap<String, Integer>();
+	private static HashMap<String, Integer> ingredientes = new HashMap<String, Integer>();
 
 	public void adicionaIngrediente(String ingrediente) {
 		quantIngredientes++;
 		contabilizaIngrediente(ingrediente);
+	}
+	
+	public static void zeraIngredientes() {
+		ingredientes.clear();
+	}
+	
+	public int getTotalIngredientes() {
+		return ingredientes.size();
 	}
 	
 	public int getPreco() {
@@ -34,14 +42,16 @@ public class Pizza {
 		}
 	}
 	
-	private static void contabilizaIngrediente(String ingrediente) {
+	private static boolean contabilizaIngrediente(String ingrediente) {
 		Integer quantidade = ingredientes.get(ingrediente);
 		if (quantidade != null) {
 			quantidade++;
 			ingredientes.put(ingrediente, quantidade);
+			return false;
 		}
 		else {
 			ingredientes.put(ingrediente, 1);
+			return true;
 		}
 	}
 }
