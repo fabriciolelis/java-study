@@ -2,3 +2,5 @@
  .recommenders/
  *.zip
  *.class
+/.metadata/
+/.recommenders/
