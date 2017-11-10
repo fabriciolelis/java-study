@@ -53,8 +53,6 @@ public class Produto {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + codigo;
-		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
-		result = prime * result + preço;
 		return result;
 	}
 }

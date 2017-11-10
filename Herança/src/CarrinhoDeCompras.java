@@ -15,11 +15,15 @@ public class CarrinhoDeCompras {
 	}
 	
 	public void removeProduto(Produto p, int quantidade) {
-		if (produtos.get(p) == quantidade) {
-			produtos.remove(p);
-		}
-		else {
-			produtos.put(p, produtos.get(p) - quantidade);
+		System.out.println("Quantidade total de produtos " + produtos.size());
+		if(produtos.containsKey(p)) {
+			System.out.println("A quantidade do mesmo produto: " + p.getNome());
+			if (produtos.get(p) == quantidade) {
+				produtos.remove(p);
+			}
+			else {
+				produtos.put(p, produtos.get(p) - quantidade);
+			}
 		}
 	}
 	
@@ -33,4 +37,18 @@ public class CarrinhoDeCompras {
 		
 		return total;
 	}
+	
+	public int totalProdutosDiferentes() {
+		return produtos.size();
+	}
+	
+	public int totalProdutos() {
+		int totalProdutos = 0;
+		for(Map.Entry<Produto, Integer> entry:produtos.entrySet()) {
+			Integer value = entry.getValue();
+			totalProdutos = totalProdutos + value;
+		}
+		return totalProdutos;
+	}
 }
+
