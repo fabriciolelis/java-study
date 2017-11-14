@@ -2,9 +2,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class CarrinhoDeCompras {
+	private int totalDasCompras;
 	private static HashMap<Produto, Integer> produtos;
 	
 	public CarrinhoDeCompras() {
+		totalDasCompras = 0;
 		produtos = new HashMap<Produto, Integer>();
 	}
 	
@@ -36,8 +38,8 @@ public class CarrinhoDeCompras {
 			Produto p = entry.getKey();
 			total = total + (value * p.getPreço());
 		}
-		
-		return total;
+		totalDasCompras = total;
+		return totalDasCompras;
 	}
 	
 	public int totalProdutosDiferentes() {
